@@ -42,4 +42,6 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
       contentAsString(home) must include ("Welcome to Play")
     }
   }
+
+
 }

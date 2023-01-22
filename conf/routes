@@ -4,21 +4,45 @@
 # ~~~~
 
 # An example controller showing a sample home page
-POST     /users                          controllers.UserController.create
-GET      /users                          controllers.UserController.list(pageNumber: Int ?= 0, pageSize: Int ?= 10)
-GET      /users/:id/service-requests     controllers.UserController.listOfRequests(id: Long, pageNumber: Int ?= 0, pageSize: Int ?= 10)
 
-POST     /properties                         controllers.PropertyController.create
-GET      /properties                         controllers.PropertyController.list(pageNumber: Int ?= 0, pageSize: Int ?= 10)
-GET      /properties/:propertyId/services    controllers.PropertyController.listOfServices(propertyId: Long, pageNumber: Int ?= 0, pageSize: Int ?= 10)
 
-POST     /services                       controllers.ServiceController.create
-GET      /services                      controllers.ServiceController.list(pageNumber: Int ?= 0, pageSize: Int ?= 10)
 
-POST     /service-requests                 controllers.ServiceRequestController.create
-GET      /service-requests                 controllers.ServiceRequestController.list(pageNumber: Int ?= 0, pageSize: Int ?= 10)
+POST        /signUp                          controllers.SignUpController.signUp
 
-POST     /service-properties           controllers.ServicePropertyController.create
+POST        /signIn                          controllers.SignInController.signIn
+
+POST        /password/change                 controllers.ChangePasswordController.changePassword
+
+GET    /secured                        @controllers.IndexController.secured
+GET   /unsecured                      @controllers.IndexController.unsecured
+
+#POST     /users                          @controllers.UserController.create
+#GET      /users                          @controllers.UserController.list(pageNumber: Int ?= 0, pageSize: Int ?= 10)
+#GET      /users/:id                   @controllers.UserController.get(id: Long)
+
+#POST     /services                       @controllers.ServiceController.create
+GET      /services                      @controllers.ServiceController.list(pageNumber: Int ?= 0, pageSize: Int ?= 10)
+#GET      /services/:id                   @controllers.ServiceController.get(id: Long)
+
+#GET    /secured                        @controllers.Application.index
+#GET   /unsecured                      @controllers.Application.signIn
+#
+#
+#POST        /api/auth/signin                                    controllers.UserController.authenticate
+#POST        /api/auth/signup                                                controllers.UserController.signUp
+#GET      /users/:id/service-requests     @controllers.UserController.listOfRequests(id: Long, pageNumber: Int ?= 0, pageSize: Int ?= 10)
+
+#POST     /properties                         @controllers.PropertyController.create
+#GET      /properties                         @controllers.PropertyController.list(pageNumber: Int ?= 0, pageSize: Int ?= 10)
+#GET      /properties/:propertyId/services    @controllers.PropertyController.listOfServices(propertyId: Long, pageNumber: Int ?= 0, pageSize: Int ?= 10)
+
+
+
+#POST     /service-requests                 @controllers.ServiceRequestController.create
+#GET      /service-requests                 @controllers.ServiceRequestController.list(pageNumber: Int ?= 0, pageSize: Int ?= 10)
+
+#POST     /service-properties           @controllers.ServicePropertyController.create
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file               @controllers.Assets.versioned(path="/public", file: Asset)
+#->         /services               routers.ServiceRouter

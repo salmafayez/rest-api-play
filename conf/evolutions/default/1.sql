@@ -1,0 +1,7 @@
+#-- !Ups
+
+CREATE SCHEMA PLAY;
+
+#-- !Downs
+
+DROP SCHEMA PLAY
